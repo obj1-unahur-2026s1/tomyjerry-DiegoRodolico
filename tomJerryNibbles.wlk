@@ -13,6 +13,12 @@ object tom {
    energia = energia - metros /2
    //cuando tom corre su energia disminueye en cantidad de mtros corridos
  }
+ method energia() {
+    return energia
+ }
+ method estaFeliz() {
+   return energia > 50
+ }
 }
 
 object jerry {

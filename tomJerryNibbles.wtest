@@ -1,17 +1,46 @@
+// IMPORTAS LO QUE VAS A TRAER A TESTEAR
 import tomJerryNibbles.*
 
-describe "Grupo de test" {
+//SE NOMBRA AL GRUPO DE TEST
+describe "Tests del escenario de Tom y Jerry" {
 
-  test "test 1" {
-    assert.equals(100, 50+50)
+  test "al inicio velocidad maxima de tom es 10" {
+  
+    assert.equals(10, tom.velocidadMaxima())
+    //ASSERT ES EL OBJETO QUE PRUEBA Y LE MANDO EL MENSAJE EQUALS:
+    //EQUALS COMPARA DOS ARGUMENTOS PARA VER SI SON IGUALES AMBOS OBJETOS QUE ESTAN EN PARENTESIS, EL PRIMER VALOR ES EL ESPERADO Y EL SEGUNDO ES LO QUE LE PROBAS 
+  }
+  test "si come a jerry, la velocidad maxima es 15.2" {
+    tom.comer(jerry)
+    assert.equals(15.2, tom.velocidadMaxima())
+  }
+  test "si come a jerry, la energia  es 102" {
+    tom.comer(jerry)
+    assert.equals(102, tom.energia())
   }
 
-  test "test 3" {
-    assert.that(true)
+  test "si tom corre 24 metros, su velocidad maxima es 14" {
+    tom.comer(jerry)
+    tom.correr(24)
+    assert.equals(14, tom.velocidadMaxima())
+  }
+  test "si tom corre 24 metros, su energia es 90" {
+    tom.comer(jerry)
+    tom.correr(24)
+    assert.equals(90, tom.energia())
   }
 
-  test "test 4" {
-    assert.notThat(false)
+  test "tom al inicio esta feliz " {
+    tom.comer(jerry)
+    assert.that(tom.estaFeliz())
+     //ASSERT ES EL OBJETO QUE PRUEBA Y LE MANDO EL MENSAJE EQUALS:
+    //EL THAT ES UN MENSAJE QUE ESPERA UN SOLO VALOR , TE DICE SI ESTA BIEN SI EL MENSAJE QUE SE LE MANDA TIENE QUE DAR VERDADERO 
+  }
+
+  test "tom no esta feliz al inicio" {
+    assert.notThat(tom.estaFeliz())
+     //ASSERT ES EL OBJETO QUE PRUEBA Y LE MANDO EL MENSAJE EQUALS:
+    //ESTE DA OK SI EL ARGUMENTO QUE LE DAMOS DA FALSO , SIGNIFICA QUE EL TEST DA BIEN
   }
 
 }
